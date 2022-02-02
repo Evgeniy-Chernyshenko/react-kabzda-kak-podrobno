@@ -1,32 +1,32 @@
-type ControlledOnOffType = {
+export type ControlledOnOffPropsType = {
   isOn: boolean;
   setIsOn: (isOn: boolean) => void;
 };
 
-const ControlledOnOff = (props: ControlledOnOffType) => {
+export const ControlledOnOff = (props: ControlledOnOffPropsType) => {
   const commonStyle = {
-    display: "inline-block",
-    border: "1px solid black",
+    display: 'inline-block',
+    border: '1px solid black',
   };
 
   const buttonStyle = {
-    padding: "5px 20px",
-    marginRight: "10px",
+    padding: '5px 20px',
+    marginRight: '10px',
   };
 
   const onStyle = {
-    backgroundColor: props.isOn ? "green" : "white",
+    backgroundColor: props.isOn ? 'green' : 'white',
   };
 
   const offStyle = {
-    backgroundColor: props.isOn ? "white" : "red",
+    backgroundColor: props.isOn ? 'white' : 'red',
   };
 
   const indicatorStyle = {
-    width: "10px",
-    height: "10px",
-    borderRadius: "5px",
-    backgroundColor: props.isOn ? "green" : "red",
+    width: '10px',
+    height: '10px',
+    borderRadius: '5px',
+    backgroundColor: props.isOn ? 'green' : 'red',
   };
 
   return (
@@ -47,5 +47,3 @@ const ControlledOnOff = (props: ControlledOnOffType) => {
     </div>
   );
 };
-
-export default ControlledOnOff;
