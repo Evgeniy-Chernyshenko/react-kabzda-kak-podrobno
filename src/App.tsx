@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <PageTitle title={'This is ReactJS app'} />
+      {/* <PageTitle title={'This is ReactJS app'} />
       <hr />
       <UncontrolledOnOff />
       <hr />
@@ -33,7 +33,7 @@ function App() {
       <hr />
       <UncontrolledAccordion title="Menu4" />
       <hr />
-      <UncontrolledRating />
+      <UncontrolledRating /> */}
     </>
   );
 }

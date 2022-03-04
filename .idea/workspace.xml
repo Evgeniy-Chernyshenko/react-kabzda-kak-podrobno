@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="76eb8e28-71f8-400f-b228-bb40aeea5e81" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ControlledAccordion/ControlledAccordion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ControlledAccordion/ControlledAccordion.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +18,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="23ytHWu7OTPqTJ0eH4IynHwUxKG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,6 +50,9 @@
       <option name="presentableId" value="Default" />
       <updated>1642718066266</updated>
       <workItem from="1642718067610" duration="8842000" />
+      <workItem from="1644679053217" duration="162000" />
+      <workItem from="1645100092182" duration="596000" />
+      <workItem from="1645304760271" duration="58000" />
     </task>
     <servers />
   </component>

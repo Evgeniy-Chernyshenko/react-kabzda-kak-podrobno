@@ -12,6 +12,7 @@ function ControlledRating(props: RatingPropsType) {
   for (let i: RatingType = 1; i <= 5; i++) {
     stars.push(
       <Star
+        key={i}
         isActive={i <= props.rating}
         onClickCallback={() => props.setRating(i)}
       />

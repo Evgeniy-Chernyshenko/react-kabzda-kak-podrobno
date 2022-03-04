@@ -1,0 +1,61 @@
+.select {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  font-family: sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.select > div {
+  border: 1px solid #b1b1b1;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select > div:after {
+  content: '';
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #999999 transparent transparent transparent;
+}
+
+.select.visible > div:after {
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #999999 transparent;
+}
+
+.select ul {
+  display: none;
+  position: absolute;
+  margin: 0;
+  list-style: none;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  padding: 0;
+  overflow: hidden;
+  width: max-content;
+  min-width: 100%;
+  background-color: #ffffff;
+}
+
+.select .visible {
+  display: block;
+}
+
+.select li {
+  padding: 10px;
+  position: relative;
+}
+
+.select li.active {
+  color: #ffffff;
+  background-color: #428fd6;
+}

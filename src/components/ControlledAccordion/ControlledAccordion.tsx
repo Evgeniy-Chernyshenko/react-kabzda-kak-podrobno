@@ -1,39 +1,61 @@
-type AccordionPropsType = {
+import React from 'react';
+
+type ItemType = {
+  id: number;
   title: string;
-  collapsed: boolean;
-  onClickCallback: () => void;
 };
 
-type AccordionTitlePropsType = { title: string; onClickCallback: () => void };
+export type AccordionPropsType = {
+  title: string;
+  items: ItemType[];
+  collapsed: boolean;
+  onTitleClickCallback: () => void;
+  onItemClickCallback: (id: number) => void;
+};
+
+type AccordionTitlePropsType = {
+  title: string;
+  onTitleClickCallback: () => void;
+};
+
+type AccordionBodyPropsType = {
+  items: ItemType[];
+  onItemClickCallback: (id: number) => void;
+};
 
 function ControlledAccordion(props: AccordionPropsType) {
   return (
     <div>
       <AccordionTitle
         title={props.title}
-        onClickCallback={props.onClickCallback}
+        onTitleClickCallback={props.onTitleClickCallback}
       />
-      {!props.collapsed && <AccordionBody />}
+      {!props.collapsed && (
+        <AccordionBody
+          onItemClickCallback={props.onItemClickCallback}
+          items={props.items}
+        />
+      )}
     </div>
   );
 }
 
-function AccordionTitle(props: AccordionTitlePropsType) {
-  return <h3 onClick={props.onClickCallback}>{props.title}</h3>;
-}
+const AccordionTitle = React.memo((props: AccordionTitlePropsType) => {
+  console.log('AccordionTitle');
 
-function AccordionBody() {
+  return <h3 onClick={props.onTitleClickCallback}>{props.title}</h3>;
+});
+
+function AccordionBody(props: AccordionBodyPropsType) {
+  console.log('AccordionBody');
+
   return (
     <ul>
-      <li>
-        <a href="#1">1</a>
-      </li>
-      <li>
-        <a href="#2">2</a>
-      </li>
-      <li>
-        <a href="#3">3</a>
-      </li>
+      {props.items.map(({ id, title }) => (
+        <li key={id} onClick={() => props.onItemClickCallback(id)}>
+          {title}
+        </li>
+      ))}
     </ul>
   );
 }

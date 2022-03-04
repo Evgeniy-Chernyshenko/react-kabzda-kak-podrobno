@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 type StarPropsType = {
   isActive: boolean;
@@ -26,10 +26,10 @@ function UncontrolledRating() {
 function Star(props: StarPropsType) {
   return (
     <span
-      style={{ fontSize: "2em", cursor: "pointer" }}
+      style={{ fontSize: '2em', cursor: 'pointer' }}
       onClick={props.onClickCallback}
     >
-      {props.isActive ? "★" : "☆"}
+      {props.isActive ? '★' : '☆'}
     </span>
   );
 }

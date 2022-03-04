@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useReducer } from 'react';
+import { reducer } from './reducer';
 
 type UncontrolledAccordionPropsType = { title: string };
 
@@ -7,20 +8,18 @@ type UncontrolledAccordionTitlePropsType = {
   onClickCallback: () => void;
 };
 
-type UncontrolledAccordionBodyProps = {
-  collapsed: boolean;
-};
-
 function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
-  const [collapsed, setCollapsed] = useState(false);
+  console.log('RENDERED UncontrolledAccordion');
+
+  const [state, dispatch] = useReducer(reducer, { isCollapsed: false });
 
   return (
     <div>
       <UncontrolledAccordionTitle
         title={props.title}
-        onClickCallback={() => setCollapsed(!collapsed)}
+        onClickCallback={() => dispatch('TOGGLE_IS_COLLAPSED')}
       />
-      <UncontrolledAccordionBody collapsed={collapsed} />
+      {!state.isCollapsed && <UncontrolledAccordionBody />}
     </div>
   );
 }
@@ -28,25 +27,25 @@ function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 function UncontrolledAccordionTitle(
   props: UncontrolledAccordionTitlePropsType
 ) {
+  console.log('RENDERED UncontrolledAccordionTitle');
   return <h3 onClick={props.onClickCallback}>{props.title}</h3>;
 }
 
-function UncontrolledAccordionBody(props: UncontrolledAccordionBodyProps) {
+function UncontrolledAccordionBody() {
+  console.log('RENDERED UncontrolledAccordionBody');
   return (
     <div>
-      {!props.collapsed && (
-        <ul>
-          <li>
-            <a href="#1">1</a>
-          </li>
-          <li>
-            <a href="#2">2</a>
-          </li>
-          <li>
-            <a href="#3">3</a>
-          </li>
-        </ul>
-      )}
+      <ul>
+        <li>
+          <a href="#1">1</a>
+        </li>
+        <li>
+          <a href="#2">2</a>
+        </li>
+        <li>
+          <a href="#3">3</a>
+        </li>
+      </ul>
     </div>
   );
 }
