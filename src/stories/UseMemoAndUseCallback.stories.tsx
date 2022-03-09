@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { Select } from '../components/Select/Select';
 
 export default {
@@ -116,6 +116,74 @@ export const SelectWithReactMemoAndUseMemo = () => {
         activeItemValue={activeItemValue3}
         setActiveItemValue={setActiveItemValue3}
       />
+    </>
+  );
+};
+
+const BooksList = React.memo(
+  (props: { books: string[]; addBook: () => void }) => {
+    console.log('Render BooksList');
+
+    return (
+      <>
+        <ul>
+          {props.books.map((u, i) => (
+            <li key={i}>{u}</li>
+          ))}
+        </ul>
+
+        <button onClick={props.addBook}>add book</button>
+      </>
+    );
+  }
+);
+
+export const UseMemoLikeUseCallback = () => {
+  console.log('Render UseMemoLikeUseCallback');
+
+  const [counter, setCounter] = useState(0);
+  const [books, setBooks] = useState(['React', 'CSS', 'HTML']);
+
+  const filteredBooks = useMemo(() => {
+    return books.filter((b) => b.toLowerCase().includes('a'));
+  }, [books]);
+
+  const addBook = useMemo(
+    () => () => setBooks([...books, `Angular ${Date.now()}`]),
+    [books]
+  );
+
+  return (
+    <>
+      <span>{counter}</span>
+      <button onClick={() => setCounter(counter + 1)}>inc</button>
+      <br />
+      <BooksList books={filteredBooks} addBook={addBook} />
+    </>
+  );
+};
+
+export const UseCallback = () => {
+  console.log('Render UseMemoLikeUseCallback');
+
+  const [counter, setCounter] = useState(0);
+  const [books, setBooks] = useState(['React', 'CSS', 'HTML']);
+
+  const filteredBooks = useMemo(() => {
+    return books.filter((b) => b.toLowerCase().includes('a'));
+  }, [books]);
+
+  const addBook = useCallback(
+    () => setBooks([...books, `Angular ${Date.now()}`]),
+    [books]
+  );
+
+  return (
+    <>
+      <span>{counter}</span>
+      <button onClick={() => setCounter(counter + 1)}>inc</button>
+      <br />
+      <BooksList books={filteredBooks} addBook={addBook} />
     </>
   );
 };
