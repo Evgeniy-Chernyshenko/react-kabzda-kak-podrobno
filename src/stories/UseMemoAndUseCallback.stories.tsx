@@ -55,7 +55,7 @@ const UsersList = React.memo((props: { users: string[] }) => {
 
 export const ReactMemoWithUseMemo = () => {
   const [counter, setCounter] = useState(0);
-  const [users, setUsers] = useState(['Bob', 'John', 'Alice']);
+  const [users, setUsers] = useState(['Bob', 'John']);
 
   const filteredUsers = useMemo(() => {
     return users.filter((u) => u.toLowerCase().includes('a'));
