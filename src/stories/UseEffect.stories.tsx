@@ -60,9 +60,11 @@ export const TimerDemo = () => {
   const [timer, setTimer] = useState(getTimer);
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setTimer(getTimer);
     }, 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
